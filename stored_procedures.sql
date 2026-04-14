@@ -45,10 +45,10 @@ DELIMITER ;
 -- 4. AddBooking
 -- Adds a new booking record
 DELIMITER //
-CREATE PROCEDURE AddBooking(IN booking_id INT, IN customer_id INT, IN table_number INT, IN booking_date DATE)
+CREATE PROCEDURE AddBooking(IN booking_id INT, IN customer_id VARCHAR(20), IN table_number INT, IN booking_date DATE)
 BEGIN
-    INSERT INTO Bookings (BookingID, BookingDate, TableNumber, CustomerID)
-    VALUES (booking_id, booking_date, table_number, customer_id);
+    INSERT INTO Bookings (BookingID, BookingDate, TableNumber, CustomerID, StaffID)
+    VALUES (booking_id, booking_date, table_number, customer_id, 1);
     SELECT 'New booking added' AS Confirmation;
 END //
 DELIMITER ;
